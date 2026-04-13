@@ -1,10 +1,12 @@
 package bank.management.system;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
-public class Deposit extends JFrame implements ActionListener{
+
+public class Deposit extends JFrame implements ActionListener {
     String pin;
     TextField textField;
 
@@ -65,7 +67,7 @@ public class Deposit extends JFrame implements ActionListener{
                 if (textField.getText().equals("")){
                     JOptionPane.showMessageDialog(null,"Please enter the Amount you want to Deposit");
                 }else {
-                    Con c = new Con();
+                    Connn c = new Connn();
                     c.statement.executeUpdate("insert into bank values('"+pin+"', '"+date+"','Deposit', '"+amount+"')");
                     JOptionPane.showMessageDialog(null,"Rs. "+amount+" Deposited Successfully");
                     setVisible(false);
@@ -81,8 +83,7 @@ public class Deposit extends JFrame implements ActionListener{
 
     }
 
-    public static void main(String args[])
-    {
-        new Deposit(" ");
+    public static void main(String[] args) {
+        new Deposit("");
     }
 }

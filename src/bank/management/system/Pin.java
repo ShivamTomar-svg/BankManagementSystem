@@ -98,7 +98,7 @@ public class Pin extends JFrame implements ActionListener {
                     return;
                 }
 
-                Con c = new Con();
+                Connn c = new Connn();
                 String q1 = "update bank set pin = '"+pin1+"' where pin = '"+pin+"'";
                 String q2 = "update login set pin = '"+pin1+"' where pin = '"+pin+"'";
                 String q3 = "update signupthree set pin = '"+pin1+"' where pin = '"+pin+"'";

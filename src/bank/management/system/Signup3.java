@@ -1,17 +1,22 @@
 package bank.management.system;
+
+import javax.print.attribute.standard.JobHoldUntil;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.server.ExportException;
 import java.util.Random;
+
 public class Signup3 extends JFrame implements ActionListener {
 
     JRadioButton r1,r2,r3,r4;
     JCheckBox c1,c2,c3,c4,c5,c6;
     JButton s,c;
     String formno;
-    public Signup3(String formno)
-    {
+    Signup3(String formno){
+
+        this.formno = formno;
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/bank.png"));
         Image i2 = i1.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT);
@@ -19,24 +24,28 @@ public class Signup3 extends JFrame implements ActionListener {
         JLabel image = new JLabel(i3);
         image.setBounds(150,5,100,100);
         add(image);
-        JLabel l1= new JLabel("Page 3:");
+
+        JLabel l1 = new JLabel("Page 3:");
         l1.setFont(new Font("Raleway",Font.BOLD,22));
         l1.setBounds(280,40,400,40);
         add(l1);
-        JLabel l2= new JLabel("Account Details:");
+
+        JLabel l2 = new JLabel("Account Details");
         l2.setFont(new Font("Raleway",Font.BOLD,22));
         l2.setBounds(280,70,400,40);
         add(l2);
-        JLabel l3= new JLabel("Account Type:");
-        l3.setFont(new Font("Raleway",Font.BOLD,22));
+
+        JLabel l3 = new JLabel("Account Type:");
+        l3.setFont(new Font("Raleway",Font.BOLD,18));
         l3.setBounds(100,140,200,30);
         add(l3);
-        r1=new JRadioButton("Saving Account");
 
+        r1 = new JRadioButton("Saving Account");
         r1.setFont(new Font("Raleway",Font.BOLD,16));
         r1.setBackground(new Color(215,252,252));
         r1.setBounds(100,180,150,30);
         add(r1);
+
         r2 = new JRadioButton("Fixed Deposit Account");
         r2.setFont(new Font("Raleway",Font.BOLD,16));
         r2.setBackground(new Color(215,252,252));
@@ -65,6 +74,7 @@ public class Signup3 extends JFrame implements ActionListener {
         l4.setFont(new Font("Raleway",Font.BOLD,18));
         l4.setBounds(100,300,200,30);
         add(l4);
+
         JLabel l5 = new JLabel("(Your 16-digit Card Number)");
         l5.setFont(new Font("Raleway",Font.BOLD,12));
         l5.setBounds(100,330,200,20);
@@ -99,6 +109,7 @@ public class Signup3 extends JFrame implements ActionListener {
         l11.setFont(new Font("Raleway",Font.BOLD,18));
         l11.setBounds(100,450,200,30);
         add(l11);
+
         c1 = new JCheckBox("ATM CARD");
         c1.setBackground(new Color(215,252,252));
         c1.setFont(new Font("Raleway",Font.BOLD,16));
@@ -128,6 +139,7 @@ public class Signup3 extends JFrame implements ActionListener {
         c5.setFont(new Font("Raleway",Font.BOLD,16));
         c5.setBounds(100,600,200,30);
         add(c5);
+
         c6 = new JCheckBox("E-Statement");
         c6.setBackground(new Color(215,252,252));
         c6.setFont(new Font("Raleway",Font.BOLD,16));
@@ -149,6 +161,8 @@ public class Signup3 extends JFrame implements ActionListener {
         l13.setFont(new Font("Raleway", Font.BOLD,14));
         l13.setBounds(760,10,60,30);
         add(l13);
+
+
         s = new JButton("Submit");
         s.setFont(new Font("Raleway", Font.BOLD,14));
         s.setBackground(Color.BLACK);
@@ -212,7 +226,7 @@ public class Signup3 extends JFrame implements ActionListener {
                 if (atype.equals("")){
                     JOptionPane.showMessageDialog(null,"Fill all the fields");
                 }else {
-                    Con c1 = new Con();
+                    Connn c1 = new Connn();
                     String q1 = "insert into signupthree values('"+formno+"', '"+atype+"','"+cardno+"','"+pin+"','"+fac+"')";
                     String q2 = "insert into login values('"+formno+"','"+cardno+"','"+pin+"')";
                     c1.statement.executeUpdate(q1);
@@ -231,8 +245,7 @@ public class Signup3 extends JFrame implements ActionListener {
 
     }
 
-    public static void main(String args[])
-    {
-        new Signup3(" ");
+    public static void main(String[] args) {
+        new Signup3("");
     }
 }

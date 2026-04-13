@@ -20,8 +20,8 @@ public class mini extends JFrame implements ActionListener {
         label1.setBounds(20,140,400,200);
         add(label1);
 
-        JLabel label2 = new JLabel("XISCO BANK");
-        label2.setFont(new Font("System", Font.BOLD,20));
+        JLabel label2 = new JLabel("TechCoder A.V");
+        label2.setFont(new Font("System", Font.BOLD,15));
         label2.setBounds(150,20,200,20);
         add(label2);
 
@@ -34,7 +34,7 @@ public class mini extends JFrame implements ActionListener {
         add(label4);
 
         try{
-            Con c = new Con();
+            Connn c = new Connn();
             ResultSet resultSet = c.statement.executeQuery("select * from login where pin = '"+pin+"'");
             while (resultSet.next()){
                 label3.setText("Card Number:  "+ resultSet.getString("card_number").substring(0,4) + "XXXXXXXX"+ resultSet.getString("card_number").substring(12));
@@ -45,7 +45,7 @@ public class mini extends JFrame implements ActionListener {
 
         try{
             int balance =0;
-            Con c = new Con();
+            Connn c = new Connn();
             ResultSet resultSet = c.statement.executeQuery("select * from bank where pin = '"+pin+"'");
             while (resultSet.next()){
 
